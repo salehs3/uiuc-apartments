@@ -2,6 +2,8 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import AISummaryButton from '@/components/AISummaryButton'
+import ChatWidget from '@/components/ChatWidget'
 
 const RED_FLAG_LABELS: Record<string, string> = {
   deposit_disputes: '⚠️ Deposit disputes reported',
@@ -343,7 +345,7 @@ export default async function ApartmentDetailPage({
         )}
 
         {/* AI Summary */}
-        {apt.ai_summary && (
+        {apt.ai_summary ? (
           <div className="bg-[#FAFAF8] rounded-2xl border border-[#E2DED8] border-l-4 border-l-[#13294B] p-6">
             <h2 className="text-base font-bold text-[#13294B] mb-2">🤖 AI Summary</h2>
             <p className="text-sm text-[#78716C] mb-5 leading-relaxed">{apt.ai_summary.summary}</p>
@@ -372,7 +374,9 @@ export default async function ApartmentDetailPage({
               </div>
             </div>
           </div>
-        )}
+        ): reviews?.length ? (
+          <AISummaryButton apartmentId={apt.id} />
+        ) : null}
 
         {/* Rating breakdown */}
         <div className="bg-[#FAFAF8] rounded-2xl border border-[#E2DED8] p-6">
@@ -506,6 +510,7 @@ export default async function ApartmentDetailPage({
         </div>
 
       </div>
+      <ChatWidget apartmentId={apt.id} />
     </main>
   )
 }
