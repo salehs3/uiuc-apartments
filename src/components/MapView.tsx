@@ -219,8 +219,8 @@ export default function MapView({
         if (camera?.center) {
           const bias = 0.25
           const center: [number, number] = [
-            camera.center.lng + (landmark.lng - camera.center.lng) * bias,
-            camera.center.lat + (landmark.lat - camera.center.lat) * bias,
+            (camera.center as mapboxgl.LngLat).lng + (landmark.lng - (camera.center as mapboxgl.LngLat).lng) * bias,
+            (camera.center as mapboxgl.LngLat).lat + (landmark.lat - (camera.center as mapboxgl.LngLat).lat) * bias,
           ]
           map.current.easeTo({
             center,
