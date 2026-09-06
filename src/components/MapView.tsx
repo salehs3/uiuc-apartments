@@ -156,7 +156,7 @@ export default function MapView({
         font-weight: 700;
         color: white;
       `
-      el.textContent = apt.rating_overall > 0 ? apt.rating_overall.toFixed(1) : '?'
+      el.textContent = apt.rating_overall > 0 ? apt.rating_overall.toFixed(1) : ''
 
       const rentLabel =
         apt.rent_min && apt.rent_max
