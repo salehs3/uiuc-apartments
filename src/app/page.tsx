@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
+import ChatWidget from '@/components/ChatWidget'
 
 const stats = [
   { value: '430+', label: 'Apartments listed' },
@@ -226,6 +227,7 @@ export default async function HomePage() {
       <footer className="border-t border-[#E2DED8] px-6 py-6 text-center text-xs text-[#A8A29E]">
         Built for UIUC students · Not affiliated with the University of Illinois
       </footer>
+      <ChatWidget />
     </main>
   )
 }
