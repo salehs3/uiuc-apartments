@@ -13,9 +13,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IlliniHousing",
-  description: "Find and review apartments near UIUC",
-};
+  title: "UIUC Apartments",
+  description: "Find and review apartments near UIUC — real ratings from verified tenants.",
+  openGraph: {
+    title: "UIUC Apartments",
+    description: "Find and review apartments near UIUC — real ratings from verified tenants.",
+    url: "https://illinihousing.vercel.app",
+    siteName: "UIUC Apartments",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+}};
 
 export default function RootLayout({
   children,
@@ -30,4 +43,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
+
+
 }
+
+
